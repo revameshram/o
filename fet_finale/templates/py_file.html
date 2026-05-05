@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Viewer</title>
+
+    <link rel="stylesheet" href="/static/py_style.css">
+</head>
+
+<body onclick="enterFullscreen()">
+
+    <!-- Hover trigger -->
+    <div class="hover-zone"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="title">📁 FILES</div>
+    </div>
+
+    <!-- Background -->
+    <div class="viewport_1">
+        <img src="/static/images/bg.png" alt="bg">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/list')
+                .then(response => response.json())
+                .then(data => {
+                    const sidebar = document.querySelector('.sidebar');
+                    data.files.forEach(file => {
+                        const span = document.createElement('span');
+                        span.onclick = () => openCode(file);
+                        span.textContent = file.slice(0, -3); // remove .py
+                        sidebar.appendChild(span);
+                    });
+                });
+        });
+
+        function openCode(filename) {
+            const url = `/static/code/${filename}`;
+            window.open(url, '_self');
+        }
+
+        function enterFullscreen() {
+            const elem = document.documentElement;
+            if (!document.fullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

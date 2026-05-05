@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Consolas, monospace;
+}
+
+/* Background */
+.viewport_1 {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.viewport_1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Sidebar (VS Code style) */
+.sidebar {
+    position: fixed;
+    
+    left: -220px;
+    top: 10px;
+    width: 240px;
+    height: 100vh;
+    background: #1e1e1e00;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    z-index: 10;
+   
+}
+.sidebar:hover{
+   left: 0%;
+}
+/* Title */
+.sidebar .title {
+    color: #aaa;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 10px;
+}
+
+/* File items */
+.sidebar span {
+    font-size: 9px;
+    color: #ccc;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.sidebar span:hover {
+    background: #333;
+    color: white;
+    transform: translateX(5px);
+}
+
+/* Click effect */
+.sidebar span:active {
+    background: #007acc;
+    color: white;
+}
