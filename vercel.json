@@ -1,0 +1,18 @@
+{
+  "builds": [
+    {
+      "src": "fet_finale/main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/fet_finale/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "fet_finale/main.py"
+    }
+  ]
+}
