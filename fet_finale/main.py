@@ -17,11 +17,11 @@ app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="stat
 
 @app.get("/")
 def home():  #it is browser's request to ask for rendering templates
-    return FileResponse(str(BASE_DIR / "templates" / "py_file.html"))
+    return FileResponse(str(BASE_DIR / "py_file.html"))
 
 @app.get("/code")
 def code():  #it is browser's request to ask for rendering templates
-    return FileResponse(str(BASE_DIR / "templates" / "py_file.html"))
+    return FileResponse(str(BASE_DIR / "py_file.html"))
 
 @app.get("/list")
 def list_code():
