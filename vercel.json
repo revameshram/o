@@ -3,9 +3,17 @@
     {
       "src": "fet_finale/main.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "fet_finale/static/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/fet_finale/static/$1"
+    },
     {
       "src": "/(.*)",
       "dest": "fet_finale/main.py"
